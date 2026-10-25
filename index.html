@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>THE ARDENT NEXUS//INTERDIMENSIONAL BORDER CONTROL</title>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <main id="view-terminal" class="active-view">
+            <header class="terminal-header">
+                <div>
+                    <h1 class="terminal-title">THE ARDENT NEXUS//BORDER CHECKPOINT</h1>
+                    <span class="protocol-tag">CHECKPOINT ALPHA-9//PROTOCOL v5.2</span>
+                </div>
+                <div class="risk-meter box">
+                    <span>SECURITY RISK INDEX:</span>
+                    <div id="risk-display" class="risk-low">0%(OPTIMAL)</div>
+                </div>
+            </header>
+            <section id="step-1" class="checkpoint-step active-step">
+                <div class="step-indicator">STEP 1 0F 4: BIOMETRIC & IDENTITY REGISTRATION</div>
+                <div class="form-group">
+                    <label for="applicant-name">FULL LEGAL DESIGNATION:</label>
+                    <input type="text" id="applicant-name" class="form-control" placeholder="Enter traveler name..." required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>DIMENSION OF ORIGIN:</label>
+                        <select id="origin-select" class="form-control">
+                            <option value="EARTH-616">EARTH-616 (STANDARD PRIME)</option>
+                            <option value="CYBERSPACE PRIME">CYBERSPACE PRIME (DIGITAL GRID)</option>
+                            <option value="ARDENT SECTOR">ARDENT SECTOR (CORE REALM)</option>
+                            <option value="VOID-9">VOID-9 (UNSTABLE OUTER RIM)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>SPECIES CLASSIFICATION:</label>
+                        <select id="species-select" class="form-control">
+                            <option value="HUMAN">HUMAN (CARBON BASED)</option>
+                            <option value="CYBORG">CYBORG (AUGMENTED NEURAL)</option>
+                            <option value="SYNTHETIC">SYNTHETIC AI ENTITY</option>
+                            <option value="ETHEREAL">ETHEREAL ENERGY MANIFEST</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>BIOMETRIC PALM VERIFICATION</label>
+                    <div id="palm-scanner" class="palm-scanner-box" onclick="triggerPalmScan()">
+                        <div class="scanner-laser"></div>
+                        <div class="palm-icon">🖐 </div>
+                        <p id="palm-status-text">CLICK HERE TO INITIATE QUANTUM DNA SCAN</p>
+                    </div>
+                </div>
+                <div class="button-row">
+                    <button type="button" class="action-btn next-btn" onclick="goToStep(2)" disabled id="btn-step1">---PROCEED TO CARGO SCAN---</button>
+                </div>
+            </section>
+            <section id="step-2" class="checkpoint-step">
+                <div class="step-indicator">STEP 2 OF 4: CARGO MANIFEST & CONTRABAND INSPECTION</div>
+                <p class="instruction-text">INSPECT ITEMS IN TRAVELER TRANSIT CRATE. CLICK ITEMS TO TOGGLE INSPECTION STATUS (CONTRABAND INCREASES RISK INDEX):</p>
+                <div class="cargo-grid">
+                    <div class="cargo-item" onclick="toggleCargoItem(this, 0)">
+                        <div class="cargo-icon">🗃</div>
+                        <div class="cargo-name">Standard Data Drives</div>
+                        <div class="cargo-status status-clean">CLEAN</div>
+                    </div>
+                    <div class="cargo-item" onclick="toggleCargoItem(this, 25)">
+                        <div class="cargo-icon">🧪</div>
+                        <div class="cargo-name">Unsatble Temporal Spores</div>
+                        <div class="cargo-status status-danger">HAZARD (+25%)</div>
+                    </div>
+                    <div class="cargo-item" onclick="toggleCargoItem(this, 10)">
+                        <div class="cargo-icon">⚙️</div>
+                        <div class="cargo-name">Neural Interfernce Parts</div>
+                        <div class="cargo-status status-clean">CLEAN</div>
+                    </div>
+                    <div class="cargo-item" onclick="toggleCargoItem(this, 40)">
+                        <div class="cargo-icon">🔮</div>
+                        <div class="cargo-name">Unlicensed Quantum Core</div>
+                        <div class="cargo-status status-danger">CONTRABAND (+40%)</div>
+                    </div>
+                </div>
+                <div class="button-row" style="margin-top: 25px;">
+                    <button type="button" class="action-btn prev-btn" onclick="goToStep(1)">-back-</button>
+                    <button type="button" class="action-btn next-btn" onclick="goToStep(3)">---PROCEED TO SECURITY QUIZ---</button>
+                </div>
+            </section>
+            <section id="step-3" class="checkpoint-step">
+                <div class="step-indicator">STEP 3 OF 4: TRANSIT INTENT & INTERROGATION</div>
+                <div class="form-group">
+                    <label>PRIMARY PURPOSE OF TRAMSIT:</label>
+                    <div class="radio-cards">
+                        <label class="radio-card">
+                            <input type="radio" name="reason" value="DIPLOMACY" checked onchange="adjsutRisk(0)">
+                            <span><strong>DIPLOMACY</strong><br><small>Official Council talks & treaty reviews</small></span>
+                        </label>
+                        <label class="radio-cards">
+                            <input type="radio" name="reason" value="COMMERCE" onchange="adjsutRisk(5)">
+                            <span>COMMERCE<strong></strong><br><small>Trade exchange & resource logistics</small></span>
+                        </label>
+                        <label class="radio-cards">
+                            <input type="radio" name="reason" value="ASYLUM" onchange="adjsutRisk(15)">
+                            <span>ASYLUM<strong></strong><br><small>Fleeing dimensional collapse/purge</small></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>DECLARE ANY PRIOR VOID ENCOUNTERS:</label>
+                    <select id="void-encounter" class="form-control" onchange="checkVoidEncounter(this)">
+                       <option value="0">None / Clean Record</option>
+                        <option value="20">Brief exposure to localized temporal rift (+20% Risk)</option>
+                        <option value="50">Direct contact with unauthorized entity (+50% Risk)</option>
+                    </select>
+                </div>
+                <div class="button-row" style="margin-top: 25px;">
+                    <button type="button" class="action-btn prev-btn" onclick="goToStep(2)">⬅ BACK</button>
+                    <button type="button" class="action-btn next-btn" onclick="startFinalEvaluation()">RUN FINAL EVALUATION ⚙️</button>
+                </div>
+            </section>
+            <section id="step-4" class="checkpoint-step">
+                <div class="step-indicator">STEP 4 0F 4: COUNCIL EVALUATION MATRIX</div>
+                <div class="processing-terminal-screen">
+                    <div class="spinner-ring"></div>
+                    <p id="termianl-log-output" class="termianl-log">Connecting to Central Ardent Mainframe...</p>
+                    <div class="progress-track">
+                        <div id="progress-bar-fill" class="progress-fill"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div id="view-passport" class="document-page-wrapper">
+            <div class="browser-nav-bar">
+                <div class="nav-dots">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <div class="url-display">https://immigration.ardentnexus.gov/passport/active_credentials</div>
+                <button class="reset-btn" onclick="resetCheckpoint()">NEW CHECKPOINT SESSION</button>
+            </div>
+            <div class="passport-container">
+                <div class="passport-card">
+                    <div class="holo-foil"></div>
+                    <header class="passport-header">
+                        <div class="passport-title">ARDENT NEXUS PASSPORT</div>
+                        <span class="clearance-tag">SECURITY CLEARANCE: LEVEL 4</span>
+                    </header>
+                    <div class="passport-tabs">
+                        <button class="pass-tab active-tab" onclick="switchPassTab(event, 'tab-bio')">IDENTITY</button>
+                        <button class="pass-tab" onclick="switchPassTab(event, 'tab-visas')">VISAS & STAMPS</button>
+                        <button class="pass-tab" onclick="switchPassTab(event, 'tab-quantum')">QUANTUM KEY</button>
+                    </div>
+                    <div id="tab-bio" class="pass-tab-content ctive-pass-content">
+                        <div class="passport-body">
+                            <div class="photo-frame">
+                                <div class="photo-silhouette"></div>
+                                <span id="pass-species-badge" class="biometric-tag">BIOMETRIC OK</span>
+                            </div>
+                            <div class="passport-details">
+                               <p>HOLDER NAME: <strong id="pass-name">---</strong></p>
+                               <p>PASSPORT NO: <strong>AN-8492-X7</strong></p>
+                               <p>ORIGIN REALM: <strong id="pass-origin">---</strong></p>
+                               <p>SPECIES CLASS: <strong id="pass-species">---</strong></p>
+                               <p>ENTRY REASON: <strong id="pass-reason">---</strong></p>
+                               <p>STATUS: <strong style="color: #22c55e;">FULLY APPROVED / MULTI-REALM ACCESS</strong></p> 
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-visias" class="pass-tab-content">
+                        <div class="visa-page-grid">
+                            <div class="visa-stamp stamp-blue">EARTH-616 PORT// CLEARED</div>
+                            <div class="visa-stamp stamp-green">CYBERSPACE GATE // AUTHORIZED</div>
+                            <div class="visa-stamp stamp-purple">ARDENT CORE // DIPLOMATIC</div>
+                        </div>
+                    </div>
+                    <div id="tab-quantum" class="pass-tab-content">
+                        <div class="quantum-key-box">
+                           <p>ENCRYPTED NEURAL SIGNATURE HASH:</p>
+                            <code>0x8492X7_ARDENT_SECURE_AUTH_TOKEN_9912</code>
+                            <p style="margin-top: 10px; font-size: 0.8rem; color: #38bdf8;">[VERIFIED BY HIGH COUNCIL QUANTUM MATRIX]</p>
+                        </div>
+                    </div>
+                    <div class="official-seal-approved">
+                        HIGH COUNCIL<br>ARDENT NEXUS<br>★ APPROVED ★
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="view-rejection" class="document-page-wrapper">
+            <div class="browser-nav-bar">
+                <div class="nav-dots">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class=dot dot-green></div>
+                </div>
+                <div class="url-display">https://immigration.ardentnexus.gov/notices/refusal_decree</div>
+                <button class="reset-btn" onclick="resetCheckpoint()">RETURN TO CHECKPOINT</button>
+            </div>
+            <div class="rejection-container">
+                <div class="parchment-doc">
+                    <div class="stamp-denied">REFUSED</div>
+                    <header class="parchment-header">
+                        <h1>HIGH COUNCIL OF THE ARDENT NEXUS</h1>
+                        <p>OFFICE OF THE INTERDIMENSIONAL BORDER SECURITY</p>
+                    </header>
+                    <section class="rejection-body">
+                        <p><strong>FORMAL NOTICE OF ENTRY DENIAL & DEPORTATION ORDER</strong></p>
+                        <p>Be it known that applicant <strong id="reject-name" style="text-decoration: underline;">[TRAVELER]</strong> originating from <strong id="reject-origin">[ORIGIN]</strong> has failed the Council's automated security telemetry matrix.</p>
+                        <div class="violation-box">
+                            <p><strong>VIOLATION LOG DETECTED:</strong></p>
+                            <ul id="violation-list">
+                              <li>High Risk Index threshold exceeded (>50%).</li>
+                              <li>Unauthorized contraband cargo inspection failure.</li> 
+                            </ul>
+                        </div>
+                        <p>pursuant to Nexus Protocal Regulation 84-B, entry into the central realm is strictly prohibited.You are ordered to return to your origin sector immediately.</p>
+                    </section>
+                    <div class="gold-seal">
+                        OFFICIAL<br>SEAL OF<br>REFUSAL
+                    </div>
+                    <footer class="parchment-footer">
+                        DECREE ISSUED BY ORDER OF THE HIGH CHANCELLOR
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>    
+</html>
