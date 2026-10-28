@@ -83,5 +83,355 @@ body::before {
     text-align: right;
     font-size: 0.8rem;
 }
+.risk-low { color: #22c55e; font-weight: bold;}
+.risk-high { color: #ef4444; font-weight: bold;}
+
+.checkpoint-step {
+    display: none;
+}
+
+.checkpoint-step.active-step {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIN {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.step-indicator {
+    font-size: 0.85rem;
+    color: #38bdf8;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #8b9bb4;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #16202c;
+    border: 1px solid #2a3a4e;
+    color: #00ffaa;
+    font-family: 'Share tech Mono', monospace;
+    font-size: 1rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    border-color: #00ffaa;
+    box-shadow: 0 0 8px rgba(0, 255, 170, 0.3)
+}
+
+/* BIOMETRIC SCANNER */
+.palm-scanner-box {
+    background-color: #16202c;
+    border: 2px dashed #2a3a4e;
+    border-radius: 6px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.palm-scanner-box:hover {
+    border-color: #38bdf8;
+    background-color: #1a2636;
+}
+
+.palm-icon {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.scanner-laser {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 3px;
+    background-color: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    display: none;
+}
+
+.scanning .scanner-laser {
+    display: block;
+    animation: scanLaser 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes scanLaser {
+    0% { top: 0%;}
+    100% { top: 100%;}
+}
+
+.scanned-success {
+    border-color: #22c55e !important;
+    color: #22c55e !important;
+}
+
+.instruction-text {
+    font-size: 0.85rem;
+    color: #8b9bb4;
+    margin-bottom: 15px;
+}
+
+.cargo-item {
+    background-color: #16202c;
+    border: 1px solid #2a3a4e;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.cargo-item:hover {
+    border-color: #38bdf8;
+}
+
+.cargo-item.inspected-danger {
+    border-color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.08)
+}
+
+.cargo-item.inspected-clean{
+    border-color: #22c55e;
+    background-color: rgba(34, 197, 94, 0.08)
+}
+
+.cargo-item { font-size: 1.5rem;}
+.cargo-name{ flex-grow: 1; font-size: 0.9rem;}
+.cargo-status{ font-size: 0.7rem; padding: 3px 6px; border-radius: 3px;}
+.cargo-clean{ background-color: rgba(34, 197, 94, 0.2); color: #22c55e;}
+.cargo-danger{ background-color: rgba(239, 68, 68, 0.2); color: #ef4444;}
 
 
+.radio-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.radio-card {
+    background-color: #16202c;
+    border: 1px solid #2a3a4e;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.radio-card input { display: none; }
+.radio-card:hover { border-color: #00ffaa; }
+
+.radio-card input:checked + span {
+    color: #00ffaa;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+
+.action-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #00ffaa, #0088cc);
+    color: #06090e;
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: bold;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 170, 0.6);
+    transform: translateY(-1px);
+}
+
+.action-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.prev-btn {
+    background: #16202c;
+    color: #8b9bb4;
+    border: 1px solid #2a3a4e;    
+}
+
+.prev-btn:hover {
+    border-color: #8b9bb4;
+    color: #e2e8f0;
+    box-shadow: none;
+}
+
+.processing-terminal-screen {
+    text-align: center;
+    padding: 40px;
+}
+
+.spinner-ring {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 255, 170, 0.2);
+    border-top-color: #00ffaa;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.terminal-track {
+    font-size: 0.95rem;
+    color: #00ffaa;
+    margin-bottom: 20px;
+    min-height: 25px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+    background-color: #16202c;
+    border: 1px solid #2a3a4e;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #00ffaa, #38bdf8);
+    transition: width 0.2s linear;
+}
+
+.browser-nav-bar {
+    background-color: #1a222d;
+    border: 1px solid #2d3b4d;
+    border-bottom: none;
+    padding: 10px 16px;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-red { background-color: #ff5f56; }
+.dot-yellow { background-color: #ffbd2e; }
+.dot-green { background-color: #27c93f; }
+
+.url-display {
+    background-color: #0d131a;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #8b9bb4;
+    flex-grow: 1;
+    border: 1px solid #2d3b4d;
+}
+
+.reset-btn {
+    padding: 4px 12px;
+    background-color: #2d3b4d;
+    color: #e2e8f0;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+
+}
+
+.reset-btn:hover { background-color: #00ffaa; color: #06090e; }
+
+.passport-container {
+    background-color: #0f172a;
+    border: 1px solid #2d3b4d;
+    border-radius: 0 0 8px 8px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.passport-card {
+    width: 100%;
+    max-width: 650px;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border: 2px solid #38bdf8;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.holo-foil {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(
+        115deg,
+        transparent 20%,
+        rgba(255, 0, 150, 0.15) 35%,
+        rgba(0, 255, 200, 0.15) 50%,
+        rgba(255, 230, 0, 0.15) 65%'
+        transparent 80%
+    );
+    background-size: 200% 200%;
+    animation: holoShift 4s ease infinite;
+    pointer-events: none;
+    z-index: 5;
+}
+
+@keyframes holoShift {
+    0% { background-position: 0% 50%;}
+    50% { background-position: 100% 50%;}
+    100% { background-position: 0% 50%;}
+}
+
+.passport-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 
+}
