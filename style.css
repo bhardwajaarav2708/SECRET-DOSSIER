@@ -433,5 +433,248 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
 }
+
+.passport-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #38bdf8;
+    letter-spacing: 2px;
+}
+
+.clearance-tag {
+    color: #38bdf8;
+    font-size: 0.75rem;
+}
+
+.passport-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.pass-tab {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    border-radius: 4px;
+}
+
+.pass-tab.active-tab {
+    background-color: #38bdf8;
+    color: #0f172a;
+    font-weight: bold;
+    border-color: #38bdf8;
+}
+
+.pass-tab-content { display: none;}
+.pass-tab-content.active-pass-content { display: block;}
+
+.passport-body {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 20px;
+}
+
+.photo-frame {
+    width: 140px;
+    height: 175px;
+    background-color: #1e293b;
+    border: 2px dashed #38bdf8;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+}
+
+.photo.silhouette {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #334155;
+    margin-bottom: 8px;
+}
+
+.biometric-tag { font-size: 0.65rem;}
+
+.passport-details p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.passport-details strong { color: #f8fafc; }
+
+.visa-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px 0;
+}
+
+.visa-stamp {
+    border: 2px dashed;
+    padding: 12px;
+    text-align: center;
+    font-family: 'Cinzel', seriff;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.stamp-blue { border-color: #38bdf8; color: #38bdf8; transform: rotate(-3deg);}
+.stamp-green { border-color: #22c55e; color: #22c55e; transform: rotate(4deg);}
+.stamp-purple { border-color: #a855f7; color: #a855f7; transform: rotate(-2deg);}
+
+.quantum-key-box {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.quantum-key-box code {
+    color: #38bdf8;
+    font-size: 0.95rem;
+    background: #1e293b;
+    padding: 6px 12px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.official-seal-approved {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    border: 3px double #22c55e;
+    border-radius: 50%;
+    color: #22c55e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    transform: rotate(-12deg);
+    background-color: rgba(34, 197, 94, 0.05)
+}
+
+.rejection-container {
+    background-color: #1c1917;
+    border: 1px solid #44403c;
+    border-radius: 0 0 8px 8px;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8)
+}
+
+.parchment-doc {
+    width: 100%;
+    max-width: 680px;
+    background-color: #f5e6c8;
+    background-image: radial-gradient(#e2cb9a 1px, transparent 0);
+    background-size: 12px 12px;
+    color: #1c1917;
+    font-family: 'Courier Prime', monospace;
+    padding: 45px;
+    border: 12px solid #78350f;
+    outline: 2px solid #f5e6c8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.parchment-header {
+    text-align: center;
+    border-bottom: 2px solid #78350f;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.parchment-header h1 {
+    font-family: 'cinzel', serif;
+    font-size: 1.4rem;
+    color: #78350f;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.parchment-header p {
+    font-size: 0.8rem;
+    color: #92400e;
+    letter-spacing: 1px;
+}
+
+.rejection-body p {
+    margin-bottom: 14px;
+    line-height: 1.6rem;
+    font-size: 0.95rem;
+}
+
+.violation-box {
+    background-color: rgba(185, 28,28, 0.08);
+    border-left: 4px solid #b91c1c;
+    padding: 12px;
+    margin: 15px 0;
+    font-size: 0.9rem;
+}
+
+.violation-box ul {
+    margin-left: 20px;
+    margin-top: 6px;
+}
+
+.gold-seal {
+    width: 85px;
+    height: 85px;
+    background: radial-gradient(circle, #fde047, #ca8a04);
+    border-radius: 50%;
+    border: 3px dashed #854d0e;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    font-weight: bold;
+    color: #78350f;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.stamp-denied {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    border: 4px solid #b91c1c;
+    color: #b91c1c;
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight:  900;
+    padding: 8px 18px;
+    transform: rotate(15deg);
+    letter-spacing: 3px;
+    opacity: 0.85;
+}
+
+.parchment-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #78350f;
+    margin-top: 15px;
+}
+
