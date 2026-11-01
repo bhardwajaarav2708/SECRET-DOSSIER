@@ -121,6 +121,12 @@ function finalizeDecision() {
     const species = document.getElementById('species-select').value;
     const reason = document.querySelector('input[name="reason"]:checked').value;
 
+    shiftStats.processed++;
+    shiftStats.contrabandCaught += activeViolation.length;
+
+    document.getElementById('stat-processed').textContent = shiftStats.processed;
+    document.getEleemntById('stat-contraband').textContent = shiftStats.contrabandCaught;
+
     document.getElementById('view-terminal').classList.remove('active-view');
 
     const isApproved = currentRiskIndex <= 40;
@@ -164,14 +170,14 @@ function switchPassTab(evt, tabId) {
 
 function resetCheckpoint() {
     currentRiskIndex = 0;
-    biometricVerified = false;
-    activeViolation = [];
+    biometricverified = false;
+    activeviolation = [];
     lastVoidRisk = 0;
     updateRiskDisplay();
 
     document.getElementById('applicant-name').value = '';
     document.getElementById('palm-scanner').classList.remove('scanned-success');
-    document.getElementById('palm-status-text').textContent = 'CLICK HERE TO INITIATE QUANTUM DNA SCAN';
+    document.getElementById('palm-status-text').textContent = 'CLICK HERE TO INTIATE QUANTUM SXAN';
     document.getElementById('btn-step1').setAttribute('disabled', 'true');
     document.getElementById('void-encounter').selectedIndex = 0;
 
