@@ -678,3 +678,22 @@ body::before {
     margin-top: 15px;
 }
 
+.shift-stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: rgba(0, 255, 204, 0.05);
+    border: 1px dashed rgba(0, 255, 204, 0.3);
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.9rem;
+    color: #00ffcc;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.4);
+}
+
+.shift-stats-bar b {
+    color: #fff;
+    text-shadow: 0 0 8px #fff;
+}
+
